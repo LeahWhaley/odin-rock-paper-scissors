@@ -8,22 +8,22 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // Prompt user for choice
-
-    // SET choice to user input
-
+     // this is only here to test computer choice, in final version this is moved to playGame()
+     let choices = ["rock", "paper", "scissors"];
+    // Prompt user for choice and SET choice to user input
+    let choice = prompt("Rock, paper, or scissors?");
     // COMPUTE lowercase of choice
-
+    choice = choice.toLowerCase().trim();
     // IF choice matches one of choices THEN
-
+    if (choice === choices[0] || choice === choices[1] || choice === choices[2]) {
        // RETURN choice
-
+        return choice;
     // ELSE
-
+    } else {
        // PRINT error message
-
+        console.log("That was not a valid choice!");
     // END IF
-
+    }
 }
 
 function playRound() {
