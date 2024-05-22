@@ -1,8 +1,10 @@
 function getComputerChoice() {
+    // this is only here to test computer choice, in final version this is moved to playGame()
+    let choices = ["rock", "paper", "scissors"];
     // SET randomIdx to random value from 0 to 2
-
+    let randomIdx = Math.floor(Math.random() * 3);
     // RETURN value at randomIdx in choices
-
+    return choices[randomIdx];
 }
 
 function getHumanChoice() {
