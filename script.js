@@ -26,21 +26,39 @@ function getHumanChoice() {
     }
 }
 
-function playRound() {
+// Temporarily put score variables in global scope before coding playGame()
+let humanScore = 0;
+let computerScore = 0;
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function playRound(humanChoice, computerChoice) {
     // IF humanChoice beats computerChoice THEN
-
+    if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
        // INCREMENT humanScore
-
+        humanScore++;
        // PRINT human win announcement
-
+        humanChoiceCapitalized = capitalize(humanChoice);
+        console.log(`You win! ${humanChoiceCapitalized} beats ${computerChoice}!`);
     // ELSE IF computerChoice beats humanChoice THEN
-
+    } else if ((humanChoice === "rock" && computerChoice === "paper") || (humanChoice === "paper" && computerChoice === "scissors") || (humanChoice === "scissors" && computerChoice === "rock")) {
        // INCREMENT computerScore
-
+        computerScore++;
        // PRINT computer win announcement
-
+        computerChoiceCapitalized = capitalize(computerChoice);
+        console.log(`You lose! ${computerChoiceCapitalized} beats ${humanChoice}!`);
+    // ELSE
+    } else {
+       // PRINT tie announcement
+        console.log(`You tied! You both picked ${humanChoice}!`);
+    }  
     // END IF
 }
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection, computerSelection);
 
 function playGame() {
     // SET choices to ["rock", "paper", "scissors"]
@@ -55,7 +73,7 @@ function playGame() {
        
        // SET humanChoice to getHumanChoice()
 
-       // CALL playRound with computerChoice, humanChoice
+       // CALL playRound with humanChoice, computerChoice
 
     // END FOR
 
